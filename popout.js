@@ -5,7 +5,6 @@
 document.querySelector('.createTodo').addEventListener('click', function(){
     document.querySelector('.new_item').style.display = 'block';
 });
-
 document.querySelector('.new_item button').addEventListener('click', function(){
     var itemName = document.querySelector('.new_item input').value;
     if(itemName != ''){
@@ -92,12 +91,12 @@ function itemComplete(index){
 }
 
 function saveItems(obj){
-    string = JSON.stringify(obj);   
+    var string = JSON.stringify(obj);   
     localStorage.setItem("todo_items", string);
-
 }
-function accessItems(){
+function accessItems_(){
     thing = localStorage.getItem("todo_items");
     return JSON.parse(thing);
 }
+
 fetchItems();

@@ -4,13 +4,13 @@
     "description":"How to study Efficiently",
     "version":"0.0.1",
     "content_scripts": [{
+        "run_at":"document_idle",
         "matches": ["<all_urls>"],
-        "js":["popout.js"]
+        "js":["script.js"]
     }],
     "action":{
         "default_title":"Study Blocks",
         "default_popup":"popout.html",
         "default_icon": "test.png"
     }
-
 }
