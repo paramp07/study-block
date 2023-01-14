@@ -1,11 +1,9 @@
 
-
-
 // createTodo <- creates todo button onlick open ".new_item"
 // new_item <- if button pressed save and hide new item
 
 document.querySelector('.createTodo').addEventListener('click', function(){
-    document.querySelector('.new_item').style.display = 'block'
+    document.querySelector('.new_item').style.display = 'block';
 });
 
 document.querySelector('.new_item button').addEventListener('click', function(){
@@ -13,7 +11,11 @@ document.querySelector('.new_item button').addEventListener('click', function(){
     if(itemName != ''){
         var itemStorage = localStorage.getItem("todo_items");
         var itemsArr = JSON.parse(itemStorage);
+        if(!Array.isArray(itemsArr)){
+            itemsArr = [];
+        }
         itemsArr.splice(itemsArr.length+1,0,{"item":itemName, "status":0});
+
         saveItems(itemsArr);
         fetchItems();
     }
@@ -92,6 +94,10 @@ function itemComplete(index){
 function saveItems(obj){
     string = JSON.stringify(obj);   
     localStorage.setItem("todo_items", string);
-}
 
+}
+function accessItems(){
+    thing = localStorage.getItem("todo_items");
+    return JSON.parse(thing);
+}
 fetchItems();

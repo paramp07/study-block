@@ -1,4 +1,5 @@
-// runs everytime we open up a new website
+var restrictedSites = accessItems();
+
 const generateHTML = (pageName) => {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -24,10 +25,20 @@ const generateCSS = () => {
     return ``
 };
 
+let sites = Object.values(restrictedSites);
+console.log(window.location.hostname);
+sites.forEach((site) => {
+    switch (window.location.hostname) {
+        case site["items"]:
+            alert("NEW SITE");
+            break;
+    }
+  });
 
 switch (window.location.hostname) {
     case "www.youtube.com":
-        document.body.innerHTML =  generateHTML("YouTube");
+       // document.body.innerHTML = generateHTML("YouTube");
+        alert('restrictedSites[i]["item"]');
         break;
     case "www.facebook.com":
         alert('THis is YOUTUBE')
