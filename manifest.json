@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name":"Study Blocks",
+    "description":"How to study Efficiently",
+    "version":"0.0.1",
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js":["script.js"]
+    }],
+    "action":{
+        "default_title":"Study Blocks",
+        "default_popup":"popout.html"
+    }
+
+}
