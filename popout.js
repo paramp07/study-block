@@ -13,8 +13,7 @@ document.querySelector('.new_item button').addEventListener('click', function(){
     if(itemName != ''){
         var itemStorage = localStorage.getItem("todo_items");
         var itemsArr = JSON.parse(itemStorage);
-
-        itemsArr.push({"item":itemName, "status":0});
+        itemsArr.splice(itemsArr.length+1,0,{"item":itemName, "status":0});
         saveItems(itemsArr);
         fetchItems();
     }
@@ -28,16 +27,18 @@ function fetchItems(){
     var newItemHTML = '';
     try{
         // fetching items from storage  
-        var itemStorage = localStorage.getItem("todo_items");
-
-        var itemsArr = JSON.parse(itemStorage);
+        var items = localStorage.getItem("todo_items");
+        var itemsArr = JSON.parse(items);
           
         for (var i = 0; i < itemsArr.length; i++){
-            var status = ''
+            var status = '';
             if (itemsArr[i].status == 1){
-                status = 'class = "done"'
+                status = 'class = "done"';
             }
-            newItemHTML += `<li data-itemindex="${i}" ${status}><span class = "item">${itemsArr[i].item}</span><div><span class="itemComplete">Done</span><span class="itemDelete">delete</span></div></li>`;
+            newItemHTML += `<li data-itemindex="${i}" ${status}>
+            <span class = "item">${itemsArr[i].item}</span>
+            <div><span class="itemComplete">Done</span><span class="itemDelete">delete</span></div>
+            </li>`;
         
         }
         
@@ -48,12 +49,12 @@ function fetchItems(){
             itemsListUl[i].querySelector('.itemComplete').addEventListener('click', function(){
                
                 var index = this.parentNode.parentNode.dataset.itemindex;
-                itemComplete(index)
+                itemComplete(index);
 
             });
             itemsListUl[i].querySelector('.itemDelete').addEventListener('click', function(){
                 var index = this.parentNode.parentNode.dataset.itemindex;
-                itemDelete(index)            
+                itemDelete(index);
             });
         }
 
@@ -89,10 +90,8 @@ function itemComplete(index){
 }
 
 function saveItems(obj){
-
     string = JSON.stringify(obj);   
-    localStorage.getItem("todo_items", string)
-
+    localStorage.setItem("todo_items", string);
 }
 
 fetchItems();
