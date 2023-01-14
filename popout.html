@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Study Blocks</title>
+    <style>
+        body{width:350px;}
+        .todo_items, 
+        .todo_items li{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        .todo_items li{
+            padding:10px;
+            border-bottom:2px solid grey;
+            display: flex;
+            justify-content: space-between;
+        }
+        .todo_items li:hover{
+            background: rgb(0,0,0,0.25);
+        }
+        .todo_items li.done .item{
+            text-decoration: line-through;
+        }
+        .todo_items div span{
+            margin:5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .new_item{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Study Blocks</h1>
+
+    <button class = 'createTodo'> New Item </button>
+    <div class = 'new_item'>
+        <input type="text"/>
+        <button>Save</button>
+    </div>
+
+    <ul class = 'todo_items'>
+        <li ><span class = "item">Do WAPH Homwork</span><div><span>Done</span><span>delete</span></div></li> 
+        <li ><span class = "item">Do WAPH Homwork</span><div><span>Done</span><span>delete</span></div></li> 
+        <li ><span class = "item">Do WAPH Homwork</span><div><span>Done</span><span>delete</span></div></li> 
+    </ul>
+
+    <script src="popout.js"></script>
+</body>
+</html>

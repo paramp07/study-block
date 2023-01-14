@@ -1,18 +1,16 @@
 {
     "manifest_version": 3,
+    "name":"Study Blocks",
+    "description":"How to study Efficiently",
+    "version":"0.0.1",
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js":["popout.js"]
+    }],
+    "action":{
+        "default_title":"Study Blocks",
+        "default_popup":"popout.html",
+        "default_icon": "test.png"
+    }
 
-    "name": "Click It",
-    "description": "Chrome Extension for Idiots",
-    "version": "1.0",
-    "author": "Param Patel",
-    "action": {
-        "default_icon": {
-            "16": "test.png"
-        },
-        "default_popup": "popup.html",
-        "default_title": "My custom goole enxnetions"
-    },
-    "permissions": [
-        "activeTab"
-    ]
 }
