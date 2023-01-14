@@ -1,3 +1,3 @@
 async function fetchData() {
-    pass
+    // this is new
 }
