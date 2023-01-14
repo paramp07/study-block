@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+
+    "name": "Click It",
+    "description": "Chrome Extension for Idiots",
+    "version": "1.0",
+    "author": "Param Patel",
+    "action": {
+        "default_icon": {
+            "16": "test.png"
+        },
+        "default_popup": "popup.html",
+        "default_title": "My custom goole enxnetions"
+    },
+    "permissions": [
+        "activeTab"
+    ]
+}
